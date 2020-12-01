@@ -1,13 +1,13 @@
 package com.consume.graphql.consume.controller;
 
-import com.consume.graphql.consume.model.dto.InputPersonaje;
+import com.consume.graphql.consume.model.dto.personaje.InputPersonaje;
 import com.consume.graphql.consume.service.IPersonajeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/graphql")
+@RequestMapping("/personaje")
 public class PersonajeController {
 
     private final IPersonajeService iPersonajeService;
@@ -17,8 +17,8 @@ public class PersonajeController {
         this.iPersonajeService = iPersonajeService;
     }
 
-    @GetMapping(value = "/consume/graphql")
-    public ResponseEntity<String> consume() {
+    @GetMapping(value = "/consul")
+    public ResponseEntity<String> consul() {
         return iPersonajeService.obtenerPersonaje();
     }
 

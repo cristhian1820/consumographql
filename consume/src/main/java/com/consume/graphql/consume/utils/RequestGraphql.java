@@ -6,18 +6,19 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+
 @Component
-public class RequestQuery {
+public class RequestGraphql {
     RestTemplate restTemplate = new RestTemplate();
 
     @Value("${url.graphql.server.ip}")
     String URL;
 
-    public ResponseEntity<String> sendRequest(String query) {
-
+    public ResponseEntity<String> send(String query) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("content-type", "application/graphql");
+      //  headers.add("content-type", "application/json");
+       // headers.add("Authorization", "H334ggMP4jAQ45QEfM979W7g");
         return restTemplate.postForEntity(URL, new HttpEntity<>(query, headers), String.class);
-
     }
 }

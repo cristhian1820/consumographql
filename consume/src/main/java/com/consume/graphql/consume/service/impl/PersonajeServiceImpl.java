@@ -1,8 +1,7 @@
 package com.consume.graphql.consume.service.impl;
 
-import com.consume.graphql.consume.model.dto.InputPersonaje;
-import com.consume.graphql.consume.utils.RequestMutation;
-import com.consume.graphql.consume.utils.RequestQuery;
+import com.consume.graphql.consume.model.dto.personaje.InputPersonaje;
+import com.consume.graphql.consume.utils.RequestGraphql;
 import com.consume.graphql.consume.service.IPersonajeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,13 +10,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class PersonajeServiceImpl implements IPersonajeService {
 
-    private final RequestQuery peticionQuery;
-    private final RequestMutation peticionMutation;
+    private final RequestGraphql requestGraphql;
 
     @Autowired
-    public PersonajeServiceImpl(RequestQuery peticionQuery, RequestMutation requestMutation) {
-        this.peticionQuery = peticionQuery;
-        this.peticionMutation = requestMutation;
+    public PersonajeServiceImpl(RequestGraphql requestMutation) {
+        this.requestGraphql = requestMutation;
     }
 
     @Override
@@ -37,7 +34,14 @@ public class PersonajeServiceImpl implements IPersonajeService {
                 "  }\n" +
                 "}";
 
-        return peticionQuery.sendRequest(query);
+                //peticion para voika por json
+                //"{\"query\": \"{user(celular:\\\"+573168333879\\\"){id email}}\"}";
+
+        System.out.println(query);
+
+
+
+        return requestGraphql.send(query);
     }
 
     @Override
@@ -52,6 +56,6 @@ public class PersonajeServiceImpl implements IPersonajeService {
                 "  }\n" +
                 "}\n",input.inputQuery());
         System.out.println(query);
-        return peticionMutation.sendMutation(query);
+        return requestGraphql.send(query);
     }
 }

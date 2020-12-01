@@ -1,8 +1,6 @@
-package com.consume.graphql.consume.model.dto;
+package com.consume.graphql.consume.model.dto.personaje;
 
 import lombok.Data;
-
-import java.sql.Date;
 
 @Data
 public class PersonajeDto {

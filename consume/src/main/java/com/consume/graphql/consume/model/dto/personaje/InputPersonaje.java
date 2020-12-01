@@ -1,9 +1,6 @@
-package com.consume.graphql.consume.model.dto;
+package com.consume.graphql.consume.model.dto.personaje;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
-
-import java.sql.Date;
 
 @Data
 public class InputPersonaje {
@@ -17,7 +14,7 @@ public class InputPersonaje {
 
     public String inputQuery() {
 
-        String input = String.format("Personaje:{nombre: \"%s\", apodo: \"%s\", ocupacion: \"%s\",fecha:\"%s\"}, serie: %s", nombre, apodo, ocupacion, fecha,serieId);
+        String input = String.format("Personaje:{nombre: \"%s\", apodo: \"%s\", ocupacion: \"%s\",fecha:\"%s\"}, serie: %s", nombre, apodo, ocupacion, fecha, serieId);
         System.out.println(input);
         return input;
     }

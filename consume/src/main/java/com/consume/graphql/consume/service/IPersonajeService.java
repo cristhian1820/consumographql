@@ -1,10 +1,7 @@
 package com.consume.graphql.consume.service;
 
-import com.consume.graphql.consume.model.dto.InputPersonaje;
-import com.consume.graphql.consume.model.dto.PersonajeDto;
+import com.consume.graphql.consume.model.dto.personaje.InputPersonaje;
 import org.springframework.http.ResponseEntity;
-
-import java.util.List;
 
 public interface IPersonajeService {
 
